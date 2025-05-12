@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../page.module.css";
 
 export default function Founder({ image, alt, instaHandle, instaUrl, bio }) {
   return (
@@ -30,6 +31,7 @@ export default function Founder({ image, alt, instaHandle, instaUrl, bio }) {
           href={instaUrl}
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.bigInstaLink}
           style={{
             fontSize: "2rem",
             fontWeight: "bold",

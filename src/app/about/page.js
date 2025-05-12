@@ -39,9 +39,9 @@ export default function AboutPage() {
       />
       <Founder
         image="/menelik.jpg"
-        alt="How Mene Likes"
-        instaHandle="@how_mene_likes"
-        instaUrl="https://www.instagram.com/how_mene_likes/"
+        alt="How Mene Liks"
+        instaHandle="@how_mene_liks"
+        instaUrl="https://www.instagram.com/how_mene_liks/"
         bio="DJ, photographer, community builder, and more - based in Brooklyn, founder of Sounds of Spotlight"
       />
     </div>
