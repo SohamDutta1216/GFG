@@ -21,7 +21,7 @@ export type Submission = $Result.DefaultSelection<Prisma.$SubmissionPayload>
 
 /**
  * ##  Prisma Client ʲˢ
- *
+ * 
  * Type-safe database client for TypeScript & Node.js
  * @example
  * ```
@@ -30,7 +30,7 @@ export type Submission = $Result.DefaultSelection<Prisma.$SubmissionPayload>
  * const submissions = await prisma.submission.findMany()
  * ```
  *
- *
+ * 
  * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
  */
 export class PrismaClient<
@@ -42,7 +42,7 @@ export class PrismaClient<
 
     /**
    * ##  Prisma Client ʲˢ
-   *
+   * 
    * Type-safe database client for TypeScript & Node.js
    * @example
    * ```
@@ -51,12 +51,12 @@ export class PrismaClient<
    * const submissions = await prisma.submission.findMany()
    * ```
    *
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
    */
 
   constructor(optionsArg ?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
-  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
+  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): void;
 
   /**
    * Connect with the database
@@ -81,7 +81,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
@@ -93,7 +93,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
@@ -104,7 +104,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
@@ -116,7 +116,7 @@ export class PrismaClient<
    * ```
    * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
    * ```
-   *
+   * 
    * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
    */
   $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
@@ -140,9 +140,7 @@ export class PrismaClient<
   $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => $Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<R>
 
 
-  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<ClientOptions>, ExtArgs, $Utils.Call<Prisma.TypeMapCb<ClientOptions>, {
-    extArgs: ExtArgs
-  }>>
+  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb, ExtArgs>
 
       /**
    * `prisma.submission`: Exposes CRUD operations for the **Submission** model.
@@ -152,7 +150,7 @@ export class PrismaClient<
     * const submissions = await prisma.submission.findMany()
     * ```
     */
-  get submission(): Prisma.SubmissionDelegate<ExtArgs, ClientOptions>;
+  get submission(): Prisma.SubmissionDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -173,6 +171,7 @@ export namespace Prisma {
   export import PrismaClientRustPanicError = runtime.PrismaClientRustPanicError
   export import PrismaClientInitializationError = runtime.PrismaClientInitializationError
   export import PrismaClientValidationError = runtime.PrismaClientValidationError
+  export import NotFoundError = runtime.NotFoundError
 
   /**
    * Re-export of sql-template-tag
@@ -193,7 +192,7 @@ export namespace Prisma {
   export type DecimalJsLike = runtime.DecimalJsLike
 
   /**
-   * Metrics
+   * Metrics 
    */
   export type Metrics = runtime.Metrics
   export type Metric<T> = runtime.Metric<T>
@@ -211,14 +210,14 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 5.22.0
+   * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
    */
   export type PrismaVersion = {
     client: string
   }
 
-  export const prismaVersion: PrismaVersion
+  export const prismaVersion: PrismaVersion 
 
   /**
    * Utility Types
@@ -234,15 +233,15 @@ export namespace Prisma {
 
   /**
    * Types of the values used to represent different kinds of `null` values when working with JSON fields.
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   namespace NullTypes {
     /**
     * Type of `Prisma.DbNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class DbNull {
@@ -252,9 +251,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.JsonNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class JsonNull {
@@ -264,9 +263,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.AnyNull`.
-    *
+    * 
     * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
-    *
+    * 
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class AnyNull {
@@ -277,21 +276,21 @@ export namespace Prisma {
 
   /**
    * Helper for filtering JSON entries that have `null` on the database (empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const DbNull: NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const JsonNull: NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
-   *
+   * 
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const AnyNull: NullTypes.AnyNull
@@ -479,7 +478,7 @@ export namespace Prisma {
   type AtLeast<O extends object, K extends string> = NoExpand<
     O extends unknown
     ? | (K extends keyof O ? { [P in K]: O[P] } & O : O)
-      | {[P in keyof O as P extends K ? P : never]-?: O[P]} & O
+      | {[P in keyof O as P extends K ? K : never]-?: O[P]} & O
     : never>;
 
   type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<_Record<Exclude<Keys<_U>, keyof U>, never>> : never;
@@ -603,14 +602,11 @@ export namespace Prisma {
     db?: Datasource
   }
 
-  interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
-    returns: Prisma.TypeMap<this['params']['extArgs'], ClientOptions extends { omit: infer OmitOptions } ? OmitOptions : {}>
+  interface TypeMapCb extends $Utils.Fn<{extArgs: $Extensions.InternalArgs, clientOptions: PrismaClientOptions }, $Utils.Record<string, any>> {
+    returns: Prisma.TypeMap<this['params']['extArgs'], this['params']['clientOptions']>
   }
 
-  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> = {
-    globalOmitOptions: {
-      omit: GlobalOmitOptions
-    }
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
       modelProps: "submission"
       txIsolationLevel: Prisma.TransactionIsolationLevel
@@ -667,10 +663,6 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.SubmissionUpdateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.SubmissionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SubmissionPayload>[]
           }
           upsert: {
             args: Prisma.SubmissionUpsertArgs<ExtArgs>
@@ -757,25 +749,8 @@ export namespace Prisma {
       timeout?: number
       isolationLevel?: Prisma.TransactionIsolationLevel
     }
-    /**
-     * Global configuration for omitting model fields by default.
-     * 
-     * @example
-     * ```
-     * const prisma = new PrismaClient({
-     *   omit: {
-     *     user: {
-     *       password: true
-     *     }
-     *   }
-     * })
-     * ```
-     */
-    omit?: Prisma.GlobalOmitConfig
   }
-  export type GlobalOmitConfig = {
-    submission?: SubmissionOmit
-  }
+
 
   /* Types for Logging */
   export type LogLevel = 'info' | 'query' | 'warn' | 'error'
@@ -816,7 +791,6 @@ export namespace Prisma {
     | 'createManyAndReturn'
     | 'update'
     | 'updateMany'
-    | 'updateManyAndReturn'
     | 'upsert'
     | 'delete'
     | 'deleteMany'
@@ -899,6 +873,7 @@ export namespace Prisma {
     website: string | null
     bio: string | null
     shown: boolean | null
+    native: boolean | null
     image: string | null
     notes: string | null
     find: string | null
@@ -917,6 +892,7 @@ export namespace Prisma {
     website: string | null
     bio: string | null
     shown: boolean | null
+    native: boolean | null
     image: string | null
     notes: string | null
     find: string | null
@@ -935,6 +911,7 @@ export namespace Prisma {
     website: number
     bio: number
     shown: number
+    native: number
     image: number
     notes: number
     find: number
@@ -963,6 +940,7 @@ export namespace Prisma {
     website?: true
     bio?: true
     shown?: true
+    native?: true
     image?: true
     notes?: true
     find?: true
@@ -981,6 +959,7 @@ export namespace Prisma {
     website?: true
     bio?: true
     shown?: true
+    native?: true
     image?: true
     notes?: true
     find?: true
@@ -999,6 +978,7 @@ export namespace Prisma {
     website?: true
     bio?: true
     shown?: true
+    native?: true
     image?: true
     notes?: true
     find?: true
@@ -1104,6 +1084,7 @@ export namespace Prisma {
     website: string
     bio: string
     shown: boolean
+    native: boolean
     image: string
     notes: string
     find: string
@@ -1141,6 +1122,7 @@ export namespace Prisma {
     website?: boolean
     bio?: boolean
     shown?: boolean
+    native?: boolean
     image?: boolean
     notes?: boolean
     find?: boolean
@@ -1159,24 +1141,7 @@ export namespace Prisma {
     website?: boolean
     bio?: boolean
     shown?: boolean
-    image?: boolean
-    notes?: boolean
-    find?: boolean
-    accepted?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["submission"]>
-
-  export type SubmissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    medium?: boolean
-    email?: boolean
-    instagram?: boolean
-    tiktok?: boolean
-    website?: boolean
-    bio?: boolean
-    shown?: boolean
+    native?: boolean
     image?: boolean
     notes?: boolean
     find?: boolean
@@ -1195,6 +1160,7 @@ export namespace Prisma {
     website?: boolean
     bio?: boolean
     shown?: boolean
+    native?: boolean
     image?: boolean
     notes?: boolean
     find?: boolean
@@ -1203,7 +1169,6 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type SubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "medium" | "email" | "instagram" | "tiktok" | "website" | "bio" | "shown" | "image" | "notes" | "find" | "accepted" | "createdAt" | "updatedAt", ExtArgs["result"]["submission"]>
 
   export type $SubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Submission"
@@ -1218,6 +1183,7 @@ export namespace Prisma {
       website: string
       bio: string
       shown: boolean
+      native: boolean
       image: string
       notes: string
       find: string
@@ -1230,12 +1196,12 @@ export namespace Prisma {
 
   type SubmissionGetPayload<S extends boolean | null | undefined | SubmissionDefaultArgs> = $Result.GetResult<Prisma.$SubmissionPayload, S>
 
-  type SubmissionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<SubmissionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+  type SubmissionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<SubmissionFindManyArgs, 'select' | 'include' | 'distinct'> & {
       select?: SubmissionCountAggregateInputType | true
     }
 
-  export interface SubmissionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  export interface SubmissionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
     [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Submission'], meta: { name: 'Submission' } }
     /**
      * Find zero or one Submission that matches the filter.
@@ -1248,10 +1214,10 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUnique<T extends SubmissionFindUniqueArgs>(args: SelectSubset<T, SubmissionFindUniqueArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends SubmissionFindUniqueArgs>(args: SelectSubset<T, SubmissionFindUniqueArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one Submission that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Submission that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
      * @param {SubmissionFindUniqueOrThrowArgs} args - Arguments to find a Submission
      * @example
@@ -1262,7 +1228,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUniqueOrThrow<T extends SubmissionFindUniqueOrThrowArgs>(args: SelectSubset<T, SubmissionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends SubmissionFindUniqueOrThrowArgs>(args: SelectSubset<T, SubmissionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
      * Find the first Submission that matches the filter.
@@ -1277,7 +1243,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirst<T extends SubmissionFindFirstArgs>(args?: SelectSubset<T, SubmissionFindFirstArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends SubmissionFindFirstArgs>(args?: SelectSubset<T, SubmissionFindFirstArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
      * Find the first Submission that matches the filter or
@@ -1293,7 +1259,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirstOrThrow<T extends SubmissionFindFirstOrThrowArgs>(args?: SelectSubset<T, SubmissionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends SubmissionFindFirstOrThrowArgs>(args?: SelectSubset<T, SubmissionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
      * Find zero or more Submissions that matches the filter.
@@ -1311,7 +1277,7 @@ export namespace Prisma {
      * const submissionWithIdOnly = await prisma.submission.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends SubmissionFindManyArgs>(args?: SelectSubset<T, SubmissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends SubmissionFindManyArgs>(args?: SelectSubset<T, SubmissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "findMany">>
 
     /**
      * Create a Submission.
@@ -1325,7 +1291,7 @@ export namespace Prisma {
      * })
      * 
      */
-    create<T extends SubmissionCreateArgs>(args: SelectSubset<T, SubmissionCreateArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends SubmissionCreateArgs>(args: SelectSubset<T, SubmissionCreateArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
      * Create many Submissions.
@@ -1353,7 +1319,7 @@ export namespace Prisma {
      * })
      * 
      * // Create many Submissions and only return the `id`
-     * const submissionWithIdOnly = await prisma.submission.createManyAndReturn({
+     * const submissionWithIdOnly = await prisma.submission.createManyAndReturn({ 
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1363,7 +1329,7 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends SubmissionCreateManyAndReturnArgs>(args?: SelectSubset<T, SubmissionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends SubmissionCreateManyAndReturnArgs>(args?: SelectSubset<T, SubmissionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Submission.
@@ -1377,7 +1343,7 @@ export namespace Prisma {
      * })
      * 
      */
-    delete<T extends SubmissionDeleteArgs>(args: SelectSubset<T, SubmissionDeleteArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends SubmissionDeleteArgs>(args: SelectSubset<T, SubmissionDeleteArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
      * Update one Submission.
@@ -1394,7 +1360,7 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends SubmissionUpdateArgs>(args: SelectSubset<T, SubmissionUpdateArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends SubmissionUpdateArgs>(args: SelectSubset<T, SubmissionUpdateArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
      * Delete zero or more Submissions.
@@ -1430,36 +1396,6 @@ export namespace Prisma {
     updateMany<T extends SubmissionUpdateManyArgs>(args: SelectSubset<T, SubmissionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Submissions and returns the data updated in the database.
-     * @param {SubmissionUpdateManyAndReturnArgs} args - Arguments to update many Submissions.
-     * @example
-     * // Update many Submissions
-     * const submission = await prisma.submission.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Submissions and only return the `id`
-     * const submissionWithIdOnly = await prisma.submission.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends SubmissionUpdateManyAndReturnArgs>(args: SelectSubset<T, SubmissionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
      * Create or update one Submission.
      * @param {SubmissionUpsertArgs} args - Arguments to update or create a Submission.
      * @example
@@ -1476,7 +1412,7 @@ export namespace Prisma {
      *   }
      * })
      */
-    upsert<T extends SubmissionUpsertArgs>(args: SelectSubset<T, SubmissionUpsertArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends SubmissionUpsertArgs>(args: SelectSubset<T, SubmissionUpsertArgs<ExtArgs>>): Prisma__SubmissionClient<$Result.GetResult<Prisma.$SubmissionPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
@@ -1616,7 +1552,7 @@ export namespace Prisma {
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__SubmissionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__SubmissionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1645,7 +1581,7 @@ export namespace Prisma {
 
   /**
    * Fields of the Submission model
-   */
+   */ 
   interface SubmissionFieldRefs {
     readonly id: FieldRef<"Submission", 'Int'>
     readonly name: FieldRef<"Submission", 'String'>
@@ -1656,6 +1592,7 @@ export namespace Prisma {
     readonly website: FieldRef<"Submission", 'String'>
     readonly bio: FieldRef<"Submission", 'String'>
     readonly shown: FieldRef<"Submission", 'Boolean'>
+    readonly native: FieldRef<"Submission", 'Boolean'>
     readonly image: FieldRef<"Submission", 'String'>
     readonly notes: FieldRef<"Submission", 'String'>
     readonly find: FieldRef<"Submission", 'String'>
@@ -1675,10 +1612,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * Filter, which Submission to fetch.
      */
     where: SubmissionWhereUniqueInput
@@ -1693,10 +1626,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * Filter, which Submission to fetch.
      */
     where: SubmissionWhereUniqueInput
@@ -1710,10 +1639,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Submission
      */
     select?: SubmissionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
     /**
      * Filter, which Submission to fetch.
      */
@@ -1759,10 +1684,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * Filter, which Submission to fetch.
      */
     where?: SubmissionWhereInput
@@ -1807,10 +1728,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * Filter, which Submissions to fetch.
      */
     where?: SubmissionWhereInput
@@ -1850,10 +1767,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * The data needed to create a Submission.
      */
     data: XOR<SubmissionCreateInput, SubmissionUncheckedCreateInput>
@@ -1879,10 +1792,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * The data used to create many Submissions.
      */
     data: SubmissionCreateManyInput | SubmissionCreateManyInput[]
@@ -1897,10 +1806,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Submission
      */
     select?: SubmissionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
     /**
      * The data needed to update a Submission.
      */
@@ -1923,36 +1828,6 @@ export namespace Prisma {
      * Filter which Submissions to update
      */
     where?: SubmissionWhereInput
-    /**
-     * Limit how many Submissions to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Submission updateManyAndReturn
-   */
-  export type SubmissionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Submission
-     */
-    select?: SubmissionSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
-     * The data used to update Submissions.
-     */
-    data: XOR<SubmissionUpdateManyMutationInput, SubmissionUncheckedUpdateManyInput>
-    /**
-     * Filter which Submissions to update
-     */
-    where?: SubmissionWhereInput
-    /**
-     * Limit how many Submissions to update.
-     */
-    limit?: number
   }
 
   /**
@@ -1963,10 +1838,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Submission
      */
     select?: SubmissionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
     /**
      * The filter to search for the Submission to update in case it exists.
      */
@@ -1990,10 +1861,6 @@ export namespace Prisma {
      */
     select?: SubmissionSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
-    /**
      * Filter which Submission to delete.
      */
     where: SubmissionWhereUniqueInput
@@ -2007,10 +1874,6 @@ export namespace Prisma {
      * Filter which Submissions to delete
      */
     where?: SubmissionWhereInput
-    /**
-     * Limit how many Submissions to delete.
-     */
-    limit?: number
   }
 
   /**
@@ -2021,10 +1884,6 @@ export namespace Prisma {
      * Select specific fields to fetch from the Submission
      */
     select?: SubmissionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Submission
-     */
-    omit?: SubmissionOmit<ExtArgs> | null
   }
 
 
@@ -2052,6 +1911,7 @@ export namespace Prisma {
     website: 'website',
     bio: 'bio',
     shown: 'shown',
+    native: 'native',
     image: 'image',
     notes: 'notes',
     find: 'find',
@@ -2080,7 +1940,7 @@ export namespace Prisma {
 
 
   /**
-   * Field references
+   * Field references 
    */
 
 
@@ -2163,6 +2023,7 @@ export namespace Prisma {
     website?: StringFilter<"Submission"> | string
     bio?: StringFilter<"Submission"> | string
     shown?: BoolFilter<"Submission"> | boolean
+    native?: BoolFilter<"Submission"> | boolean
     image?: StringFilter<"Submission"> | string
     notes?: StringFilter<"Submission"> | string
     find?: StringFilter<"Submission"> | string
@@ -2181,6 +2042,7 @@ export namespace Prisma {
     website?: SortOrder
     bio?: SortOrder
     shown?: SortOrder
+    native?: SortOrder
     image?: SortOrder
     notes?: SortOrder
     find?: SortOrder
@@ -2202,6 +2064,7 @@ export namespace Prisma {
     website?: StringFilter<"Submission"> | string
     bio?: StringFilter<"Submission"> | string
     shown?: BoolFilter<"Submission"> | boolean
+    native?: BoolFilter<"Submission"> | boolean
     image?: StringFilter<"Submission"> | string
     notes?: StringFilter<"Submission"> | string
     find?: StringFilter<"Submission"> | string
@@ -2220,6 +2083,7 @@ export namespace Prisma {
     website?: SortOrder
     bio?: SortOrder
     shown?: SortOrder
+    native?: SortOrder
     image?: SortOrder
     notes?: SortOrder
     find?: SortOrder
@@ -2246,6 +2110,7 @@ export namespace Prisma {
     website?: StringWithAggregatesFilter<"Submission"> | string
     bio?: StringWithAggregatesFilter<"Submission"> | string
     shown?: BoolWithAggregatesFilter<"Submission"> | boolean
+    native?: BoolWithAggregatesFilter<"Submission"> | boolean
     image?: StringWithAggregatesFilter<"Submission"> | string
     notes?: StringWithAggregatesFilter<"Submission"> | string
     find?: StringWithAggregatesFilter<"Submission"> | string
@@ -2263,6 +2128,7 @@ export namespace Prisma {
     website: string
     bio: string
     shown: boolean
+    native: boolean
     image: string
     notes: string
     find: string
@@ -2281,6 +2147,7 @@ export namespace Prisma {
     website: string
     bio: string
     shown: boolean
+    native: boolean
     image: string
     notes: string
     find: string
@@ -2298,6 +2165,7 @@ export namespace Prisma {
     website?: StringFieldUpdateOperationsInput | string
     bio?: StringFieldUpdateOperationsInput | string
     shown?: BoolFieldUpdateOperationsInput | boolean
+    native?: BoolFieldUpdateOperationsInput | boolean
     image?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     find?: StringFieldUpdateOperationsInput | string
@@ -2316,6 +2184,7 @@ export namespace Prisma {
     website?: StringFieldUpdateOperationsInput | string
     bio?: StringFieldUpdateOperationsInput | string
     shown?: BoolFieldUpdateOperationsInput | boolean
+    native?: BoolFieldUpdateOperationsInput | boolean
     image?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     find?: StringFieldUpdateOperationsInput | string
@@ -2334,6 +2203,7 @@ export namespace Prisma {
     website: string
     bio: string
     shown: boolean
+    native: boolean
     image: string
     notes: string
     find: string
@@ -2351,6 +2221,7 @@ export namespace Prisma {
     website?: StringFieldUpdateOperationsInput | string
     bio?: StringFieldUpdateOperationsInput | string
     shown?: BoolFieldUpdateOperationsInput | boolean
+    native?: BoolFieldUpdateOperationsInput | boolean
     image?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     find?: StringFieldUpdateOperationsInput | string
@@ -2369,6 +2240,7 @@ export namespace Prisma {
     website?: StringFieldUpdateOperationsInput | string
     bio?: StringFieldUpdateOperationsInput | string
     shown?: BoolFieldUpdateOperationsInput | boolean
+    native?: BoolFieldUpdateOperationsInput | boolean
     image?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     find?: StringFieldUpdateOperationsInput | string
@@ -2429,6 +2301,7 @@ export namespace Prisma {
     website?: SortOrder
     bio?: SortOrder
     shown?: SortOrder
+    native?: SortOrder
     image?: SortOrder
     notes?: SortOrder
     find?: SortOrder
@@ -2451,6 +2324,7 @@ export namespace Prisma {
     website?: SortOrder
     bio?: SortOrder
     shown?: SortOrder
+    native?: SortOrder
     image?: SortOrder
     notes?: SortOrder
     find?: SortOrder
@@ -2469,6 +2343,7 @@ export namespace Prisma {
     website?: SortOrder
     bio?: SortOrder
     shown?: SortOrder
+    native?: SortOrder
     image?: SortOrder
     notes?: SortOrder
     find?: SortOrder
@@ -2665,6 +2540,14 @@ export namespace Prisma {
   }
 
 
+
+  /**
+   * Aliases for legacy arg types
+   */
+    /**
+     * @deprecated Use SubmissionDefaultArgs instead
+     */
+    export type SubmissionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SubmissionDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

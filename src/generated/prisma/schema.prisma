@@ -24,6 +24,7 @@ model Submission {
   website   String
   bio       String
   shown     Boolean
+  native    Boolean
   image     String
   notes     String
   find      String

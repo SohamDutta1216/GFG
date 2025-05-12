@@ -342,8 +342,8 @@
 }
 
 .pageContent {
-  padding-top: 10px;
-} 
+  padding-top: 80px;
+}
 
 .formTitle {
   font-size: 24px;
@@ -443,42 +443,34 @@
   font-size: 1.1em;
 }
 
-body, .formBox, .formBox label, .formBox input, .formBox textarea, .formBox button, .formTitle, .formCol, .formRow, .checkboxLabel, .radioGroup, .radioLabel, .radioOption, .consentBox, .imageInputLabel, .imagePreview, .requiredStar {
-  color: var(--accent, #db4a2b) !important;
-}
-
 .arrow {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
+  font-size: 1.2rem;
+  margin-left: 8px;
 }
 
 .fadeIn {
-  animation: fadeInAnim 0.4s;
-  opacity: 1;
-  transition: opacity 0.4s;
+  animation: fadeInAnim 0.3s ease forwards;
 }
 
 .fadeOut {
-  animation: fadeOutAnim 0.4s;
-  opacity: 0;
-  transition: opacity 0.4s;
+  animation: fadeOutAnim 0.3s ease forwards;
 }
 
 @keyframes fadeInAnim {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOutAnim {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 .bigInstaLink {
-  color: inherit;
   text-decoration: none;
-  transition: text-decoration 0.2s;
+  transition: all 0.3s ease;
 }
 
 .bigInstaLink:hover {
