@@ -21,28 +21,27 @@ export default function AboutPage() {
         alt="Maliha"
         instaHandle="@malihaceramics"
         instaUrl="https://www.instagram.com/malihaceramics/"
-        bio="Brooklyn based ceramic artist and interior designer"
-      />
+        bio="Maliha is a Brooklyn-based ceramic artist and interior designer blending organic textures, vintage charm, and bold color to reimagine everyday spaces and forms. She’s also a community organizer by day. " />
       <Founder
         image="/hanna.jpeg"
         alt="Hanna"
         instaHandle="@hannawonphoto"
         instaUrl="https://www.instagram.com/hannawonphoto/"
-        bio="Brooklyn based photographer"
+        bio="Hanna is an Ethiopian-U.S. American visual storyteller whose work challenges single story narratives while uplifting story partners to witness and imagine a life outside of the boundaries that society has outlined for them."
       />
       <Founder
         image="/soham.jpg"
         alt="Soham"
         instaHandle="@sohamshoots"
         instaUrl="https://www.instagram.com/sohamshoots/"
-        bio="NYC native, raised in Queens, based in Brooklyn, photographer, creative web designer and developer, and more"
+        bio="Soham is a New York City native, raised in Queens and based in Brooklyn. As a photographer, web designer, and developer, he draws on the rhythm and diversity of Queens to capture everyday moments with intimacy and character."
       />
       <Founder
         image="/menelik.jpg"
         alt="How Mene Liks"
         instaHandle="@how_mene_liks"
         instaUrl="https://www.instagram.com/how_mene_liks/"
-        bio="DJ, photographer, community builder, and more - based in Brooklyn, founder of Sounds of Spotlight"
+        bio="Menelik is an Ethiopian-American photographer, DJ, and multidisciplinary creative. His love for all artistic mediums comes to life through his creative organization, Sounds of Spotlight."
       />
     </div>
   );

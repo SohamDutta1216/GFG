@@ -164,12 +164,26 @@
   animation: fadeIn 1.2s ease 0.8s forwards;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 647px) {
+  .navbar {
+    height: 60px;
+    padding: 0 16px;
+  }
+
   .navButton {
     min-width: 56px;
     height: 32px;
     font-size: 11px;
     padding: 0 8px;
+  }
+
+  .navButtons {
+    gap: 8px;
+  }
+
+  .logoContainer img {
+    width: 180px !important;
+    height: auto !important;
   }
 }
 
@@ -216,7 +230,7 @@
 .formBox {
   max-width: 750px;
   width: 85vw;
-  margin: 120px auto 32px auto;
+  margin: 40px auto 32px auto;
   padding: 24px 16px;
   border: 2px solid var(--accent, #db4a2b);
   border-radius: 10px;

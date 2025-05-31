@@ -6,6 +6,7 @@ import styles from "../page.module.css";
 import { useState } from "react";
 
 export default function SubmitPage() {
+  const submissionsOpen = false; // Control submissions availability
   const [form, setForm] = useState({
     name: "",
     medium: "",
@@ -109,155 +110,159 @@ export default function SubmitPage() {
     <div className={styles.pageContent}>
       <Navbar />
       <ThemeToggle />
-      <form className={styles.formBox} onSubmit={handleSubmit}>
-        <h2 className={styles.formTitle}>Gallery Submission Form</h2>
-        <div className={styles.formNote}>
-          <strong>Please note:</strong> The information you provide in this form will be used to present your work on the Good Friends Gallery website. Choose your photo thoughtfully and share details you'd like the public to see.
-        </div>
-        <div className={styles.formRow}>
-          <label className={styles.formCol}>
-            <span>
-              Name <span className={styles.requiredStar}>*</span>
-            </span>
-            <input name="name" value={form.name} onChange={handleChange} required />
-          </label>
-          <label className={styles.formCol}>
-            <span>
-              Email <span className={styles.requiredStar}>*</span>
-            </span>
-            <input name="email" type="email" value={form.email} onChange={handleChange} required />
-          </label>
-        </div>
-        <label>
-          <span>
-            Medium <span className={styles.requiredStar}>*</span>
-          </span>
-          <input name="medium" value={form.medium} onChange={handleChange} required />
-        </label>
-        <div className={styles.formRow}>
-          <label className={styles.formCol}>
-            Instagram
-            <input name="instagram" value={form.instagram} onChange={handleChange} />
-          </label>
-          <label className={styles.formCol}>
-            TikTok
-            <input name="tiktok" value={form.tiktok} onChange={handleChange} />
-          </label>
-          <label className={styles.formCol}>
-            Website
-            <input name="website" value={form.website} onChange={handleChange} />
-          </label>
-        </div>
-        <label>
-          <span>
-            Bio (about yourself, max 250 words) <span className={styles.requiredStar}>*</span>
-          </span>
-          <textarea name="bio" value={form.bio} onChange={handleChange} rows={4} maxLength={2000} required />
-        </label>
-        <div className={styles.formRow}>
-          <div className={styles.radioGroup} style={{flex: 1}}>
-            <span className={styles.radioLabel}>Have you exhibited your work in a gallery before?</span>
-            <label className={styles.radioOption}>
-              <input
-                type="radio"
-                name="shown"
-                value="yes"
-                checked={form.shown === true}
-                onChange={() => setForm(prev => ({ ...prev, shown: true }))}
-                required
-              />
-              Yes
+      {!submissionsOpen ? (
+        <div className={styles.comingSoon}>Submissions Not Open</div>
+      ) : (
+        <form className={styles.formBox} onSubmit={handleSubmit}>
+          <h2 className={styles.formTitle}>Gallery Submission Form</h2>
+          <div className={styles.formNote}>
+            <strong>Please note:</strong> The information you provide in this form will be used to present your work on the Good Friends Gallery website. Choose your photo thoughtfully and share details you'd like the public to see.
+          </div>
+          <div className={styles.formRow}>
+            <label className={styles.formCol}>
+              <span>
+                Name <span className={styles.requiredStar}>*</span>
+              </span>
+              <input name="name" value={form.name} onChange={handleChange} required />
             </label>
-            <label className={styles.radioOption}>
-              <input
-                type="radio"
-                name="shown"
-                value="no"
-                checked={form.shown === false}
-                onChange={() => setForm(prev => ({ ...prev, shown: false }))}
-                required
-              />
-              No
+            <label className={styles.formCol}>
+              <span>
+                Email <span className={styles.requiredStar}>*</span>
+              </span>
+              <input name="email" type="email" value={form.email} onChange={handleChange} required />
             </label>
           </div>
-        </div>
-        <div className={styles.formRow}>
-          <div className={styles.radioGroup} style={{flex: 1}}>
-            <span className={styles.radioLabel}>Are you a native New Yorker? <span className={styles.requiredStar}>*</span></span>
-            <label className={styles.radioOption}>
-              <input
-                type="radio"
-                name="native"
-                value="yes"
-                checked={form.native === true}
-                onChange={() => setForm(prev => ({ ...prev, native: true }))}
-                required
-              />
-              Yes
-            </label>
-            <label className={styles.radioOption}>
-              <input
-                type="radio"
-                name="native"
-                value="no"
-                checked={form.native === false}
-                onChange={() => setForm(prev => ({ ...prev, native: false }))}
-                required
-              />
-              No
-            </label>
-          </div>
-        </div>
-        {/* Image input with custom style */}
-        <div className={styles.imageInputBox}>
-          <label className={styles.imageInputLabel}>
-            <span>
-              {imageFile ? imageFile.name : "Click to select an image (one image only)"} <span className={styles.requiredStar}>*</span>
-            </span>
-            <input
-              name="image"
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              required
-            />
-          </label>
-          {imagePreview && (
-            <img
-              src={imagePreview}
-              alt="Preview"
-              className={styles.imagePreview}
-            />
-          )}
-        </div>
-        <div className={styles.formRow}>
-          <label className={styles.formCol}>
-            Additional notes (including size and dimensions of work)
-            <textarea name="notes" value={form.notes} onChange={handleChange} rows={2} />
-          </label>
-          <label className={styles.formCol}>
-            How did you find out about us?
-            <input name="find" value={form.find} onChange={handleChange} />
-          </label>
-        </div>
-        {error && <div className={styles.error}>{error}</div>}
-        <div className={styles.consentBox}>
           <label>
-            <input
-              type="checkbox"
-              checked={agree}
-              onChange={e => setAgree(e.target.checked)}
-              required
-            />
-            <span style={{marginLeft: 8}}>
-              I agree the use of my information to be showcased on the Good Friends Gallery site
+            <span>
+              Medium <span className={styles.requiredStar}>*</span>
             </span>
+            <input name="medium" value={form.medium} onChange={handleChange} required />
           </label>
-        </div>
-        <button type="submit" disabled={uploading || !agree || !requiredFilled}>
-          {uploading ? "Uploading..." : "Submit"}
-        </button>
-      </form>
+          <div className={styles.formRow}>
+            <label className={styles.formCol}>
+              Instagram
+              <input name="instagram" value={form.instagram} onChange={handleChange} />
+            </label>
+            <label className={styles.formCol}>
+              TikTok
+              <input name="tiktok" value={form.tiktok} onChange={handleChange} />
+            </label>
+            <label className={styles.formCol}>
+              Website
+              <input name="website" value={form.website} onChange={handleChange} />
+            </label>
+          </div>
+          <label>
+            <span>
+              Bio (about yourself, max 250 words) <span className={styles.requiredStar}>*</span>
+            </span>
+            <textarea name="bio" value={form.bio} onChange={handleChange} rows={4} maxLength={2000} required />
+          </label>
+          <div className={styles.formRow}>
+            <div className={styles.radioGroup} style={{flex: 1}}>
+              <span className={styles.radioLabel}>Have you exhibited your work in a gallery before?</span>
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="shown"
+                  value="yes"
+                  checked={form.shown === true}
+                  onChange={() => setForm(prev => ({ ...prev, shown: true }))}
+                  required
+                />
+                Yes
+              </label>
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="shown"
+                  value="no"
+                  checked={form.shown === false}
+                  onChange={() => setForm(prev => ({ ...prev, shown: false }))}
+                  required
+                />
+                No
+              </label>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.radioGroup} style={{flex: 1}}>
+              <span className={styles.radioLabel}>Are you a native New Yorker? <span className={styles.requiredStar}>*</span></span>
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="native"
+                  value="yes"
+                  checked={form.native === true}
+                  onChange={() => setForm(prev => ({ ...prev, native: true }))}
+                  required
+                />
+                Yes
+              </label>
+              <label className={styles.radioOption}>
+                <input
+                  type="radio"
+                  name="native"
+                  value="no"
+                  checked={form.native === false}
+                  onChange={() => setForm(prev => ({ ...prev, native: false }))}
+                  required
+                />
+                No
+              </label>
+            </div>
+          </div>
+          {/* Image input with custom style */}
+          <div className={styles.imageInputBox}>
+            <label className={styles.imageInputLabel}>
+              <span>
+                {imageFile ? imageFile.name : "Click to select an image (one image only)"} <span className={styles.requiredStar}>*</span>
+              </span>
+              <input
+                name="image"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                required
+              />
+            </label>
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Preview"
+                className={styles.imagePreview}
+              />
+            )}
+          </div>
+          <div className={styles.formRow}>
+            <label className={styles.formCol}>
+              Additional notes (including size and dimensions of work)
+              <textarea name="notes" value={form.notes} onChange={handleChange} rows={2} />
+            </label>
+            <label className={styles.formCol}>
+              How did you find out about us?
+              <input name="find" value={form.find} onChange={handleChange} />
+            </label>
+          </div>
+          {error && <div className={styles.error}>{error}</div>}
+          <div className={styles.consentBox}>
+            <label>
+              <input
+                type="checkbox"
+                checked={agree}
+                onChange={e => setAgree(e.target.checked)}
+                required
+              />
+              <span style={{marginLeft: 8}}>
+                I agree the use of my information to be showcased on the Good Friends Gallery site
+              </span>
+            </label>
+          </div>
+          <button type="submit" disabled={uploading || !agree || !requiredFilled}>
+            {uploading ? "Uploading..." : "Submit"}
+          </button>
+        </form>
+      )}
     </div>
   );
 } 
