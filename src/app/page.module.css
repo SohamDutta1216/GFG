@@ -167,22 +167,22 @@
 @media (max-width: 647px) {
   .navbar {
     height: 60px;
-    padding: 0 16px;
+    padding: 0 12px;
   }
 
   .navButton {
-    min-width: 56px;
-    height: 32px;
-    font-size: 11px;
-    padding: 0 8px;
+    min-width: 48px;
+    height: 28px;
+    font-size: 10px;
+    padding: 0 6px;
   }
 
   .navButtons {
-    gap: 8px;
+    gap: 6px;
   }
 
   .logoContainer img {
-    width: 180px !important;
+    width: 160px !important;
     height: auto !important;
   }
 }
